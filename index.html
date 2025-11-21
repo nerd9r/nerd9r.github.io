@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kratena Research Group</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 font-sans selection:bg-teal-200 selection:text-teal-900">
+    <!-- Navigation -->
+    <nav class="bg-slate-900/95 backdrop-blur-sm text-white fixed w-full z-50 border-b border-slate-700 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2 font-bold text-xl tracking-wider text-teal-400 cursor-pointer" onclick="scrollToSection('#home')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>
+                    <span>KRATENA GROUP</span>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" onclick="scrollToSection('#home'); return false;" class="hover:text-teal-400 transition-colors px-3 py-2 rounded-md text-sm font-medium uppercase tracking-wide cursor-pointer">Home</a>
+                        <a href="#research" onclick="scrollToSection('#research'); return false;" class="hover:text-teal-400 transition-colors px-3 py-2 rounded-md text-sm font-medium uppercase tracking-wide cursor-pointer">Research</a>
+                        <a href="#bio" onclick="scrollToSection('#bio'); return false;" class="hover:text-teal-400 transition-colors px-3 py-2 rounded-md text-sm font-medium uppercase tracking-wide cursor-pointer">The PI</a>
+                        <a href="#publications" onclick="scrollToSection('#publications'); return false;" class="hover:text-teal-400 transition-colors px-3 py-2 rounded-md text-sm font-medium uppercase tracking-wide cursor-pointer">Publications</a>
+                        <a href="#team" onclick="scrollToSection('#team'); return false;" class="hover:text-teal-400 transition-colors px-3 py-2 rounded-md text-sm font-medium uppercase tracking-wide cursor-pointer">Team</a>
+                        <a href="#contact" onclick="scrollToSection('#contact'); return false;" class="hover:text-teal-400 transition-colors px-3 py-2 rounded-md text-sm font-medium uppercase tracking-wide cursor-pointer">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="-mr-2 flex md:hidden">
+                    <button onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-slate-700 focus:outline-none">
+                        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 hidden"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" onclick="scrollToSection('#home'); toggleMobileMenu(); return false;" class="text-gray-300 hover:text-teal-400 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Home</a>
+                <a href="#research" onclick="scrollToSection('#research'); toggleMobileMenu(); return false;" class="text-gray-300 hover:text-teal-400 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Research</a>
+                <a href="#bio" onclick="scrollToSection('#bio'); toggleMobileMenu(); return false;" class="text-gray-300 hover:text-teal-400 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">The PI</a>
+                <a href="#publications" onclick="scrollToSection('#publications'); toggleMobileMenu(); return false;" class="text-gray-300 hover:text-teal-400 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Publications</a>
+                <a href="#team" onclick="scrollToSection('#team'); toggleMobileMenu(); return false;" class="text-gray-300 hover:text-teal-400 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Team</a>
+                <a href="#contact" onclick="scrollToSection('#contact'); toggleMobileMenu(); return false;" class="text-gray-300 hover:text-teal-400 block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center bg-slate-900 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="./lab.jpg" alt="Lab Background" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-slate-900/80"></div>
+        </div>
+
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-teal-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+            <div class="absolute top-20 right-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-8 left-1/2 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <div class="flex justify-center mb-6">
+                <div class="p-3 bg-slate-800/50 rounded-2xl border border-slate-700 backdrop-blur-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 text-teal-400"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg">
+                Kratena Research Group
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 mb-8 font-light drop-shadow-md">
+                Exploring the frontiers of <span class="text-teal-400 font-medium">Organic Synthesis</span> and <span class="text-blue-400 font-medium">Medicinal Chemistry</span> at TU Wien.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#research" onclick="scrollToSection('#research'); return false;" class="px-8 py-3 bg-teal-500 hover:bg-teal-600 text-white rounded-full font-semibold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-teal-500/25">
+                    Our Research
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <a href="#publications" onclick="scrollToSection('#publications'); return false;" class="px-8 py-3 bg-slate-800/80 hover:bg-slate-700/80 text-white border border-slate-600 rounded-full font-semibold transition-all cursor-pointer backdrop-blur-sm">
+                    Publications
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Research Focus</h2>
+                <div class="w-24 h-1 bg-teal-500 mx-auto rounded-full"></div>
+                <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+                    Our group combines synthetic methodology with biological application to solve complex problems in molecular sciences.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-teal-600"><path d="M4.5 3h15"/><path d="M6 3v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3"/><path d="M6 14h12"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Bio-inspired Synthesis of Rearranged Terpenoids</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        We focus on the semi-synthetic preparation of rearranged terpenoids with interesting biological activity. 
+                        Our strategy involves mimicking natural biosynthesis pathways, starting from commercially available natural 
+                        precursors to access complex molecular architectures efficiently.
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-600"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Photoaffinity Probes & MCRs</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        In collaboration with Solgate GmbH, we are designing fragment-based photoaffinity probes. 
+                        We develop novel methods to synthesize small molecules containing photoactive functional groups (diazirines), 
+                        employing high-throughput synthesis to create libraries for biological evaluation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section id="bio" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-12 items-start">
+                <div class="w-full md:w-1/3">
+                    <div class="bg-white p-4 rounded-2xl shadow-lg rotate-1 hover:rotate-0 transition-transform duration-300">
+                        <div class="aspect-[3/4] bg-slate-200 rounded-xl flex flex-col items-center justify-center text-slate-400 mb-4 overflow-hidden relative">
+                            <img src="./kratena.jpg" alt="Dr. Nicolas Kratena" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="w-full h-full absolute inset-0 flex items-center justify-center bg-slate-100" style="display:none;">
+                                <span class="text-xl font-bold text-slate-400">NK</span>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-xl font-bold text-slate-900">Dr. Nicolas Kratena</h3>
+                            <p class="text-teal-600 font-medium">Principal Investigator</p>
+                            <div class="flex justify-center gap-3 mt-3">
+                                <a href="mailto:nicolas.kratena@tuwien.ac.at" class="p-2 bg-slate-100 rounded-full hover:bg-teal-50 text-slate-600 hover:text-teal-600 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                </a>
+                                <a href="#" class="p-2 bg-slate-100 rounded-full hover:bg-teal-50 text-slate-600 hover:text-teal-600 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-2/3">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6">Principal Investigator</h2>
+                    <div class="prose prose-slate max-w-none text-slate-600 mb-8">
+                        <p class="text-lg">
+                            Dr. Nicolas Kratena is currently a Principal Investigator at TU Wien, leading research projects in bio-inspired synthesis 
+                            and medicinal chemistry. With a strong foundation in organic synthesis from his education at TU Wien and postdoctoral 
+                            research at the University of Oxford, his group tackles challenges at the interface of chemistry and biology.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="flex items-center gap-2 text-lg font-semibold text-slate-900 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-teal-500"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                                Education & Experience
+                            </h4>
+                            <ul class="border-l-2 border-slate-200 pl-4 space-y-4">
+                                <li class="relative">
+                                    <div class="absolute -left-[21px] top-1.5 w-3 h-3 rounded-full bg-teal-500 border-2 border-white"></div>
+                                    <span class="block text-sm text-slate-500 font-semibold">2022 – Present</span>
+                                    <span class="block text-slate-900 font-medium">Principal Investigator</span>
+                                    <span class="text-slate-600">TU Wien, Austria</span>
+                                </li>
+                                <li class="relative">
+                                    <div class="absolute -left-[21px] top-1.5 w-3 h-3 rounded-full bg-slate-300 border-2 border-white"></div>
+                                    <span class="block text-sm text-slate-500 font-semibold">2020 – 2022</span>
+                                    <span class="block text-slate-900 font-medium">Postdoctoral Research</span>
+                                    <span class="text-slate-600">University of Oxford (Prof. Timothy J. Donohoe)</span>
+                                </li>
+                                <li class="relative">
+                                    <div class="absolute -left-[21px] top-1.5 w-3 h-3 rounded-full bg-slate-300 border-2 border-white"></div>
+                                    <span class="block text-sm text-slate-500 font-semibold">2015 – 2019</span>
+                                    <span class="block text-slate-900 font-medium">Ph.D. Natural Sciences</span>
+                                    <span class="text-slate-600">TU Wien (Prof. Peter Gärtner & Dr. Valentin Enev)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="flex items-center gap-2 text-lg font-semibold text-slate-900 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-blue-500"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                                Grants & Awards
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-50 text-blue-700 text-sm rounded-full border border-blue-100">FWF Stand-Alone Project (2024)</span>
+                                <span class="px-3 py-1 bg-blue-50 text-blue-700 text-sm rounded-full border border-blue-100">FFG BRIDGE (2025)</span>
+                                <span class="px-3 py-1 bg-blue-50 text-blue-700 text-sm rounded-full border border-blue-100">FWF Erwin-Schrödinger Fellowship (2020)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <!-- Team Section -->
+    <section id="team" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 mx-auto text-teal-500 mb-4"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <h2 class="text-3xl font-bold text-slate-900">Group Members</h2>
+                <p class="mt-4 text-slate-600">Meet the team driving our research forward.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- PI Card -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center">
+                    <div class="w-24 h-24 mx-auto bg-slate-100 rounded-full flex items-center justify-center mb-4 text-slate-400 overflow-hidden border-2 border-white shadow-inner">
+                        <img src="./kratena.jpg" alt="Dr. Nicolas Kratena" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="w-full h-full absolute flex items-center justify-center" style="display:none;">
+                            <span class="text-xl font-bold text-slate-400">NK</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-slate-900">Dr. Nicolas Kratena</h3>
+                    <p class="text-sm text-teal-600 mb-2">Principal Investigator</p>
+                </div>
+
+                <!-- Team Members -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center hover:shadow-md transition-shadow">
+                    <div class="w-24 h-24 mx-auto bg-slate-100 rounded-full flex items-center justify-center mb-4 text-slate-400 border-2 border-white shadow-inner overflow-hidden">
+                        <img src="./heinzig.jpg" alt="Dipl.-Ing. Nicolas Heinzig" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="w-full h-full absolute flex items-center justify-center" style="display:none;">
+                            <span class="text-xl font-bold text-slate-400">NH</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-slate-900">Dipl.-Ing. Nicolas Heinzig</h3>
+                    <p class="text-sm text-slate-500 mb-2">PhD Student</p>
+                    <span class="inline-block mt-2 px-3 py-1 bg-teal-50 text-teal-700 text-xs rounded-full">
+                        Current Member
+                    </span>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center hover:shadow-md transition-shadow">
+                    <div class="w-24 h-24 mx-auto bg-slate-100 rounded-full flex items-center justify-center mb-4 text-slate-400 border-2 border-white shadow-inner overflow-hidden">
+                        <img src="./bauhoff.jpg" alt="Thomas Bauhoff, MSc" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="w-full h-full absolute flex items-center justify-center" style="display:none;">
+                            <span class="text-xl font-bold text-slate-400">TB</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-slate-900">Thomas Bauhoff, MSc</h3>
+                    <p class="text-sm text-slate-500 mb-2">PhD Student</p>
+                    <span class="inline-block mt-2 px-3 py-1 bg-teal-50 text-teal-700 text-xs rounded-full">
+                        Current Member
+                    </span>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center hover:shadow-md transition-shadow">
+                    <div class="w-24 h-24 mx-auto bg-slate-100 rounded-full flex items-center justify-center mb-4 text-slate-400 border-2 border-white shadow-inner overflow-hidden">
+                        <img src="./gartlgruber.jpg" alt="Pia Gartlgruber, MSc" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="w-full h-full absolute flex items-center justify-center" style="display:none;">
+                            <span class="text-xl font-bold text-slate-400">PG</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-slate-900">Pia Gartlgruber, MSc</h3>
+                    <p class="text-sm text-slate-500 mb-2">PhD Student</p>
+                    <span class="inline-block mt-2 px-3 py-1 bg-teal-50 text-teal-700 text-xs rounded-full">
+                        Current Member
+                    </span>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <div class="inline-block bg-teal-50 border border-teal-100 p-6 rounded-lg">
+                    <h4 class="font-bold text-teal-900 mb-2">Interested in joining?</h4>
+                    <p class="text-teal-700 mb-4">We are always looking for motivated students (BSc, MSc, PhD) to join our team.</p>
+                    <a href="#contact" onclick="scrollToSection('#contact'); return false;" class="inline-block text-sm font-bold text-white bg-teal-500 px-4 py-2 rounded-md hover:bg-teal-600 transition-colors cursor-pointer">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Publications Section -->
+    <section id="publications" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 mx-auto text-teal-500 mb-4"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                <h2 class="text-3xl font-bold text-slate-900">Publications</h2>
+            </div>
+
+            <div class="space-y-12">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2 mb-6 flex items-center gap-2">
+                        <span class="w-2 h-8 bg-teal-500 rounded-full"></span>
+                        Independent Work <span class="text-sm font-normal text-slate-500 ml-2">(2023 – Present)</span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-700 hover:bg-slate-50 p-3 rounded-lg transition-colors border border-transparent hover:border-slate-100 items-start">
+                            <span class="font-mono text-teal-500 font-bold w-8 flex-shrink-0 pt-1">21.</span>
+                            <div class="flex-grow">
+                                <p>L. Wiener, M. Kaiser, <strong>N. Kratena</strong>*, P. J. Gritsch*, P. Gärtner, <em>J. Org. Chem.</em> <strong>2025</strong>, in press.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-700 hover:bg-slate-50 p-3 rounded-lg transition-colors border border-transparent hover:border-slate-100 items-start">
+                            <span class="font-mono text-teal-500 font-bold w-8 flex-shrink-0 pt-1">20.</span>
+                            <div class="flex-grow">
+                                <p>C. Suster, <strong>N. Kratena</strong>, K. Bocharov, C. Stanetty, <em>J. Org. Chem.</em> <strong>2025</strong>, 90, 14328.</p>
+                            </div>
+							<a href="https://pubs.acs.org/doi/10.1021/acs.joc.5c01792" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>	
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-700 hover:bg-slate-50 p-3 rounded-lg transition-colors border border-transparent hover:border-slate-100 items-start">
+                            <span class="font-mono text-teal-500 font-bold w-8 flex-shrink-0 pt-1">19.</span>
+                            <div class="flex-grow">
+                                <p>J. Breinsperger, M. Kaiser, <strong>N. Kratena</strong>, P. Gärtner, <em>ChemistryEurope</em> <strong>2025</strong>, 30, 2500110.</p>
+                            </div>
+							<a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/epdf/10.1002/ceur.202500110" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>	
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-700 hover:bg-slate-50 p-3 rounded-lg transition-colors border border-transparent hover:border-slate-100 items-start">
+                            <span class="font-mono text-teal-500 font-bold w-8 flex-shrink-0 pt-1">18.</span>
+                            <div class="flex-grow">
+                                <p>D. Fröschl, <strong>N. Kratena</strong>, B. Stöger*, A. Virovets, T. Wolflehner, <em>Acta Cryst. B</em> <strong>2025</strong>, 81.</p>
+                            </div>
+							<a href="https://journals.iucr.org/b/issues/2025/06/00/dk5140/dk5140.pdf" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>	
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-700 hover:bg-slate-50 p-3 rounded-lg transition-colors border border-transparent hover:border-slate-100 items-start">
+                            <span class="font-mono text-teal-500 font-bold w-8 flex-shrink-0 pt-1">17.</span>
+                            <div class="flex-grow">
+                                <p><strong>N. Kratena</strong>*, M. Kaiser, K. Naumov, M. Waxmann, P. Gärtner, <em>JACS Au</em> <strong>2025</strong>, 5, 1076.</p>
+                            </div>
+							<a href="https://pubs.acs.org/doi/10.1021/jacsau.5c00102" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>	
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-700 hover:bg-slate-50 p-3 rounded-lg transition-colors border border-transparent hover:border-slate-100 items-start">
+                            <span class="font-mono text-teal-500 font-bold w-8 flex-shrink-0 pt-1">16.</span>
+                            <div class="flex-grow">
+                                <p><strong>N. Kratena</strong>*, M. Weil, P. Gärtner, <em>Org. Biomol. Chem.</em> <strong>2023</strong>, 21, 6317.</p>
+                            </div>   
+							<a href="https://pubs.rsc.org/en/content/articlepdf/2023/ob/d3ob01001e" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>							
+                    </div>
+					<div class="flex flex-col sm:flex-row gap-4 text-slate-700 hover:bg-slate-50 p-3 rounded-lg transition-colors border border-transparent hover:border-slate-100 items-start">
+                            <span class="font-mono text-teal-500 font-bold w-8 flex-shrink-0 pt-1"></span>
+                            <div class="flex-grow">
+                                <p><strong></p>
+                            </div>                                     
+                    </div>
+                </div>
+
+                <div>
+    <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-2 mb-6 flex items-center gap-2">
+        <span class="w-2 h-8 bg-slate-400 rounded-full"></span>
+        Pre-Independent Work <span class="text-sm font-normal text-slate-500 ml-2">(Selected)</span>
+    </h3>
+    <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+            <span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">15.</span>
+            <div class="flex-grow">
+                <p class="font-normal">D. Aleksza, A. Spiridon, M. Tarkka, M.-T. Hauser, S. Hann, E. Oburger, T. Causon, <strong>N. Kratena</strong>, C. Stanetty, T. S. George, J. Russell, E. Oburger, <em>Plant Sci.</em> <strong>2023</strong>, 111919.</p>
+            </div>
+            <a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                [PDF]
+            </a>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal">A. Spiridon, E. Oburger, Y. Valadbeigi, T. Kloimböck, C. Stanetty, <strong>N. Kratena</strong>, M. Draskovits, T. Causon, S. Hann, <em>Anal. Chim. Acta</em> <strong>2023</strong>, 1278, 341718.</p>
+            </div>
+			<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>
+        </div>
+					<div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal"><strong>N. Kratena</strong>, M. Draskovits, N. Biedermann, E. Oburger, C. Stanetty, <em>J. Label. Compd. Radiopharm.</em> <strong>2023</strong>, 1-7.</p>
+                            </div>
+							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal"><strong>N. Kratena</strong>, B. Marinic, T. J. Donohoe, <em>Chem. Sci.</em> <strong>2022</strong>, 13, 14213.</p>
+                            </div>
+							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal"><strong>N. Kratena</strong>, O. Hoff, D. Aynetdinova, K. E. Christensen, T. J. Donohoe, <em>Chem. Eur. J.</em> <strong>2022</strong>, 28, 202202464.</p>
+                            </div>
+							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal">M. Kischkewitz, B. Marinic, <strong>N. Kratena</strong>, Y. Lai, H. B. Hepburn, M. Dow, K. E. Christensen, T. J. Donohoe, <em>Angew. Chem. Int. Ed.</em> <strong>2022</strong>, 61, e20220468.</p>
+                            </div>
+							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal"><strong>N. Kratena</strong>, T. Gökler, L. Maltrovsky, E. Oburger, C. Stanetty, <em>Chem. Eur. J.</em> <strong>2021</strong>, 27, 577.</p>
+                            </div>
+							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>
+                        </div>
+                       <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal"><strong>N. Kratena</strong>, S. Pfeffer, V. S. Enev, G. Gmeiner, P. Gärtner, <em>Steroids</em> <strong>2020</strong>, 164, 108716.</p>
+                            </div>
+							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal">L. Göschl, G. Gmeiner, V. S. Enev, <strong>N. Kratena</strong>, P. Gärtner, G. Forsdahl, <em>Drug Test Anal.</em> <strong>2020</strong>, 12, 1031.</p>
+                            </div>
+							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>
+                        </div>
+                       <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal"><strong>N. Kratena</strong>, N. Biedermann, B. Stojanovic, L. Göschl, V. S. Enev, G. Gmeiner, P. Gärtner, <em>Steroids</em> <strong>2019</strong>, 150.</p>
+                            </div>
+							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal"><strong>N. Kratena</strong>, V. S. Enev, G. Gmeiner, P. Gärtner, <em>Monatsh. Chem.</em> <strong>2019</strong>, 150, 843.</p>
+                            </div>
+							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal">D. Dreier, M. Resetar, V. Temml, L. Rycek, <strong>N. Kratena</strong>, M. Schnürch, D. Schuster, V. Dirsch, M. D. Mihovilovic, <em>Org. Biomol. Chem.</em> <strong>2018</strong>, 16, 7019.</p>
+                            </div>
+							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal"><strong>N. Kratena</strong>, S. M. Pilz, M. Weil, G. Gmeiner, V. S. Enev, P. Gärtner, <em>Org. Biomol. Chem.</em> <strong>2018</strong>, 16, 2508.</p>
+                            </div>
+							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>
+                        </div>
+                       <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal"><strong>N. Kratena</strong>, B. Stöger, M. Weil, V. S. Enev, P. Gärtner, <em>Tetrahedron Lett.</em> <strong>2017</strong>, 58, 1316.</p>
+                            </div>
+							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                                [PDF]
+                            </a>
+                        </div>
+                       <div class="flex flex-col sm:flex-row gap-4 text-slate-600 text-sm hover:bg-slate-50 p-3 rounded-lg transition-colors items-start">
+							<span class="font-mono text-slate-400 font-bold w-8 flex-shrink-0 pt-1">1.</span>
+							<div class="flex-grow">
+								<p class="font-normal"><strong>N. Kratena</strong>, V. S. Enev, G. Gmeiner, P. Gärtner, <em>Steroids</em> <strong>2016</strong>, 115, 75.</p>
+							</div>
+							<a href="https://www.sciencedirect.com/science/article/pii/S0039128X1630109X" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+								<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+								[PDF]
+							</a>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-teal-500"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>
+                        Kratena Group
+                    </h3>
+                    <p class="text-sm leading-relaxed mb-4">
+                        Institute of Applied Synthetic Chemistry<br>
+                        Technische Universität Wien
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-teal-500 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span class="text-sm">
+                                TU Wien<br>
+                                Getreidemarkt 9<br>
+                                A-1060, Vienna, Austria
+                            </span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-teal-500 flex-shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            <a href="mailto:nicolas.kratena@tuwien.ac.at" class="text-sm hover:text-white transition-colors">
+                                nicolas.kratena@tuwien.ac.at
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://www.tuwien.at/" target="_blank" rel="noreferrer" class="hover:text-teal-400 transition-colors">TU Wien</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">Institute Website</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-800 text-center text-xs">
+                <p>&copy; <span id="year"></span> Kratena Research Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            menu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        // Smooth scroll function
+        function scrollToSection(href) {
+            const element = document.querySelector(href);
+            if (element) {
+                const offset = 80;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
+</body>
+</html>
