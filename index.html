@@ -72,8 +72,8 @@
     <!-- Hero Section -->
     <section id="home" class="relative h-screen flex items-center justify-center bg-slate-900 overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="./lab.jpg" alt="Lab Background" class="w-full h-full object-cover opacity-20">
-            <div class="absolute inset-0 bg-slate-900/80"></div>
+            <img src="./lab.jpg" alt="Lab Background" class="w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 bg-slate-900/30"></div>
         </div>
 
         <div class="absolute inset-0 opacity-10 pointer-events-none">
@@ -106,44 +106,51 @@
         </div>
     </section>
 
-    <!-- Research Section -->
-    <section id="research" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Research Focus</h2>
-                <div class="w-24 h-1 bg-teal-500 mx-auto rounded-full"></div>
-                <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
-                    Our group combines synthetic methodology with biological application to solve complex problems in molecular sciences.
+  <!-- Research Section -->
+<section id="research" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Research Focus</h2>
+            <div class="w-24 h-1 bg-teal-500 mx-auto rounded-full"></div>
+            <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+                Our group combines synthetic methodology with biological application to solve complex problems in molecular sciences.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Research Topic 1 -->
+            <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                <!-- CHANGED: Flex container to align icon and title -->
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-teal-600"><path d="M4.5 3h15"/><path d="M6 3v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3"/><path d="M6 14h12"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900">Bio-inspired synthesis of terpenoids</h3>
+                </div>
+                <p class="text-slate-600 leading-relaxed">
+                    We focus on the semi-synthetic preparation of rearranged terpenoids with interesting biological activity.
+                    Our strategy involves mimicking natural biosynthesis pathways, starting from commercially available natural
+                    precursors to access complex molecular architectures efficiently.
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-teal-600"><path d="M4.5 3h15"/><path d="M6 3v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3"/><path d="M6 14h12"/></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Bio-inspired Synthesis of Rearranged Terpenoids</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        We focus on the semi-synthetic preparation of rearranged terpenoids with interesting biological activity. 
-                        Our strategy involves mimicking natural biosynthesis pathways, starting from commercially available natural 
-                        precursors to access complex molecular architectures efficiently.
-                    </p>
-                </div>
-
-                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+            <!-- Research Topic 2 -->
+            <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                <!-- CHANGED: Flex container to align icon and title -->
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-600"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="9"/></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Photoaffinity Probes & MCRs</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        In collaboration with Solgate GmbH, we are designing fragment-based photoaffinity probes. 
-                        We develop novel methods to synthesize small molecules containing photoactive functional groups (diazirines), 
-                        employing high-throughput synthesis to create libraries for biological evaluation.
-                    </p>
+                    <h3 class="text-2xl font-bold text-slate-900">Photoaffinity probes & MCRs</h3>
                 </div>
+                <p class="text-slate-600 leading-relaxed">
+                    In collaboration with Solgate GmbH, we are designing fragment-based photoaffinity probes.
+                    We develop novel methods to synthesize small molecules containing photoactive functional groups (diazirines),
+                    employing high-throughput synthesis to create libraries for biological evaluation.
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Bio Section -->
     <section id="bio" class="py-20 bg-slate-50">
@@ -200,6 +207,12 @@
                                     <span class="block text-sm text-slate-500 font-semibold">2020 – 2022</span>
                                     <span class="block text-slate-900 font-medium">Postdoctoral Research</span>
                                     <span class="text-slate-600">University of Oxford (Prof. Timothy J. Donohoe)</span>
+                                </li>
+								 <li class="relative">
+                                    <div class="absolute -left-[21px] top-1.5 w-3 h-3 rounded-full bg-slate-300 border-2 border-white"></div>
+                                    <span class="block text-sm text-slate-500 font-semibold">2019 – 2020</span>
+                                    <span class="block text-slate-900 font-medium">Postdoctoral Research</span>
+                                    <span class="text-slate-600">TU Wien (Prof. Marko D. Mihovilovic & Dr. Christian Stanetty)</span>
                                 </li>
                                 <li class="relative">
                                     <div class="absolute -left-[21px] top-1.5 w-3 h-3 rounded-full bg-slate-300 border-2 border-white"></div>
@@ -291,16 +304,7 @@
                     </span>
                 </div>
             </div>
-            
-            <div class="mt-12 text-center">
-                <div class="inline-block bg-teal-50 border border-teal-100 p-6 rounded-lg">
-                    <h4 class="font-bold text-teal-900 mb-2">Interested in joining?</h4>
-                    <p class="text-teal-700 mb-4">We are always looking for motivated students (BSc, MSc, PhD) to join our team.</p>
-                    <a href="#contact" onclick="scrollToSection('#contact'); return false;" class="inline-block text-sm font-bold text-white bg-teal-500 px-4 py-2 rounded-md hover:bg-teal-600 transition-colors cursor-pointer">
-                        Get in Touch
-                    </a>
-                </div>
-            </div>
+           
         </div>
     </section>
     <!-- Publications Section -->
@@ -321,13 +325,13 @@
                         <div class="flex flex-col sm:flex-row gap-4 text-slate-700 hover:bg-slate-50 p-3 rounded-lg transition-colors border border-transparent hover:border-slate-100 items-start">
                             <span class="font-mono text-teal-500 font-bold w-8 flex-shrink-0 pt-1">21.</span>
                             <div class="flex-grow">
-                                <p>L. Wiener, M. Kaiser, <strong>N. Kratena</strong>*, P. J. Gritsch*, P. Gärtner, <em>J. Org. Chem.</em> <strong>2025</strong>, in press.</p>
+                                <p>L. Wiener, M. Kaiser, <strong>N. Kratena</strong>, P. J. Gritsch*, P. Gärtner, <em>J. Org. Chem.</em> <strong>2025</strong>, in press.</p>
                             </div>
                         </div>
                         <div class="flex flex-col sm:flex-row gap-4 text-slate-700 hover:bg-slate-50 p-3 rounded-lg transition-colors border border-transparent hover:border-slate-100 items-start">
                             <span class="font-mono text-teal-500 font-bold w-8 flex-shrink-0 pt-1">20.</span>
                             <div class="flex-grow">
-                                <p>C. Suster, <strong>N. Kratena</strong>, K. Bocharov, C. Stanetty, <em>J. Org. Chem.</em> <strong>2025</strong>, 90, 14328.</p>
+                                <p>C. Suster, <strong>N. Kratena</strong>, K. Bocharov, C. Stanetty*, <em>J. Org. Chem.</em> <strong>2025</strong>, 90, 14328.</p>
                             </div>
 							<a href="https://pubs.acs.org/doi/10.1021/acs.joc.5c01792" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
@@ -337,7 +341,7 @@
                         <div class="flex flex-col sm:flex-row gap-4 text-slate-700 hover:bg-slate-50 p-3 rounded-lg transition-colors border border-transparent hover:border-slate-100 items-start">
                             <span class="font-mono text-teal-500 font-bold w-8 flex-shrink-0 pt-1">19.</span>
                             <div class="flex-grow">
-                                <p>J. Breinsperger, M. Kaiser, <strong>N. Kratena</strong>, P. Gärtner, <em>ChemistryEurope</em> <strong>2025</strong>, 30, 2500110.</p>
+                                <p>J. Breinsperger, M. Kaiser*, <strong>N. Kratena</strong>, P. Gärtner, <em>ChemistryEurope</em> <strong>2025</strong>, 30, 2500110.</p>
                             </div>
 							<a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/epdf/10.1002/ceur.202500110" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
@@ -392,7 +396,7 @@
             <div class="flex-grow">
                 <p class="font-normal">D. Aleksza, A. Spiridon, M. Tarkka, M.-T. Hauser, S. Hann, E. Oburger, T. Causon, <strong>N. Kratena</strong>, C. Stanetty, T. S. George, J. Russell, E. Oburger, <em>Plant Sci.</em> <strong>2023</strong>, 111919.</p>
             </div>
-            <a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+            <a href="https://www.sciencedirect.com/science/article/pii/S0168945223003369" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                 [PDF]
             </a>
@@ -402,7 +406,7 @@
 							<div class="flex-grow">
 								<p class="font-normal">A. Spiridon, E. Oburger, Y. Valadbeigi, T. Kloimböck, C. Stanetty, <strong>N. Kratena</strong>, M. Draskovits, T. Causon, S. Hann, <em>Anal. Chim. Acta</em> <strong>2023</strong>, 1278, 341718.</p>
             </div>
-			<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+			<a href="https://www.sciencedirect.com/science/article/pii/S000326702300939X" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                 [PDF]
                             </a>
@@ -412,7 +416,7 @@
 							<div class="flex-grow">
 								<p class="font-normal"><strong>N. Kratena</strong>, M. Draskovits, N. Biedermann, E. Oburger, C. Stanetty, <em>J. Label. Compd. Radiopharm.</em> <strong>2023</strong>, 1-7.</p>
                             </div>
-							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+							<a href="https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/full/10.1002/jlcr.4064" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                 [PDF]
                             </a>
@@ -422,7 +426,7 @@
 							<div class="flex-grow">
 								<p class="font-normal"><strong>N. Kratena</strong>, B. Marinic, T. J. Donohoe, <em>Chem. Sci.</em> <strong>2022</strong>, 13, 14213.</p>
                             </div>
-							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+							<a href="https://pubs.rsc.org/en/content/articlehtml/2022/sc/d2sc04638e" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                 [PDF]
                             </a>
@@ -432,7 +436,7 @@
 							<div class="flex-grow">
 								<p class="font-normal"><strong>N. Kratena</strong>, O. Hoff, D. Aynetdinova, K. E. Christensen, T. J. Donohoe, <em>Chem. Eur. J.</em> <strong>2022</strong>, 28, 202202464.</p>
                             </div>
-							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+							<a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/chem.202202464" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                 [PDF]
                             </a>
@@ -442,7 +446,7 @@
 							<div class="flex-grow">
 								<p class="font-normal">M. Kischkewitz, B. Marinic, <strong>N. Kratena</strong>, Y. Lai, H. B. Hepburn, M. Dow, K. E. Christensen, T. J. Donohoe, <em>Angew. Chem. Int. Ed.</em> <strong>2022</strong>, 61, e20220468.</p>
                             </div>
-							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+							<a href="https://onlinelibrary.wiley.com/doi/full/10.1002/anie.202204682" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                 [PDF]
                             </a>
@@ -452,7 +456,7 @@
 							<div class="flex-grow">
 								<p class="font-normal"><strong>N. Kratena</strong>, T. Gökler, L. Maltrovsky, E. Oburger, C. Stanetty, <em>Chem. Eur. J.</em> <strong>2021</strong>, 27, 577.</p>
                             </div>
-							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+							<a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/chem.202004004" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                 [PDF]
                             </a>
@@ -462,7 +466,7 @@
 							<div class="flex-grow">
 								<p class="font-normal"><strong>N. Kratena</strong>, S. Pfeffer, V. S. Enev, G. Gmeiner, P. Gärtner, <em>Steroids</em> <strong>2020</strong>, 164, 108716.</p>
                             </div>
-							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+							<a href="https://www.sciencedirect.com/science/article/pii/S0039128X20301422" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                 [PDF]
                             </a>
@@ -472,7 +476,7 @@
 							<div class="flex-grow">
 								<p class="font-normal">L. Göschl, G. Gmeiner, V. S. Enev, <strong>N. Kratena</strong>, P. Gärtner, G. Forsdahl, <em>Drug Test Anal.</em> <strong>2020</strong>, 12, 1031.</p>
                             </div>
-							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+							<a href="https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/full/10.1002/dta.2805" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                 [PDF]
                             </a>
@@ -482,7 +486,7 @@
 							<div class="flex-grow">
 								<p class="font-normal"><strong>N. Kratena</strong>, N. Biedermann, B. Stojanovic, L. Göschl, V. S. Enev, G. Gmeiner, P. Gärtner, <em>Steroids</em> <strong>2019</strong>, 150.</p>
                             </div>
-							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+							<a href="https://www.sciencedirect.com/science/article/pii/S0039128X19301205" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                 [PDF]
                             </a>
@@ -492,7 +496,7 @@
 							<div class="flex-grow">
 								<p class="font-normal"><strong>N. Kratena</strong>, V. S. Enev, G. Gmeiner, P. Gärtner, <em>Monatsh. Chem.</em> <strong>2019</strong>, 150, 843.</p>
                             </div>
-							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+							<a href="https://link.springer.com/article/10.1007/s00706-019-02424-4" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                 [PDF]
                             </a>
@@ -502,7 +506,7 @@
 							<div class="flex-grow">
 								<p class="font-normal">D. Dreier, M. Resetar, V. Temml, L. Rycek, <strong>N. Kratena</strong>, M. Schnürch, D. Schuster, V. Dirsch, M. D. Mihovilovic, <em>Org. Biomol. Chem.</em> <strong>2018</strong>, 16, 7019.</p>
                             </div>
-							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+							<a href="https://pubs.rsc.org/en/content/articlehtml/2018/ob/c8ob01745j" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                 [PDF]
                             </a>
@@ -512,7 +516,7 @@
 							<div class="flex-grow">
 								<p class="font-normal"><strong>N. Kratena</strong>, S. M. Pilz, M. Weil, G. Gmeiner, V. S. Enev, P. Gärtner, <em>Org. Biomol. Chem.</em> <strong>2018</strong>, 16, 2508.</p>
                             </div>
-							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+							<a href="https://pubs.rsc.org/en/content/articlehtml/2018/ob/c8ob00122g" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                 [PDF]
                             </a>
@@ -522,7 +526,7 @@
 							<div class="flex-grow">
 								<p class="font-normal"><strong>N. Kratena</strong>, B. Stöger, M. Weil, V. S. Enev, P. Gärtner, <em>Tetrahedron Lett.</em> <strong>2017</strong>, 58, 1316.</p>
                             </div>
-							<a href=" " target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
+							<a href="https://www.sciencedirect.com/science/article/pii/S0040403917302277" target="_blank" rel="noreferrer" class="flex items-center gap-1 px-3 py-1 bg-slate-100 hover:bg-teal-100 text-slate-600 hover:text-teal-700 text-xs font-bold rounded transition-colors flex-shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                 [PDF]
                             </a>
